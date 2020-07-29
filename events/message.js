@@ -3,14 +3,15 @@ module.exports = (client, message) => {
     if (message.author.bot) return;
 
     const responseObject = require("../responseObject.json");
-    
-    for(var property in responseObject){
-        if(message.content.toLowerCase().startsWith(property)){
+
+    //check if message starts with something which we can respond to in a hilarious way
+    for (var property in responseObject) {
+        if (message.content.toLowerCase().startsWith(property)) {
             message.channel.send(responseObject[property]);
         }
     }
 
-    
+
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(client.config.prefix) !== 0) return;
 
