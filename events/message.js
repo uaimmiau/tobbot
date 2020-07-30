@@ -11,7 +11,6 @@ module.exports = (client, message) => {
         }
     }
 
-
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(client.config.prefix) !== 0) return;
 
@@ -23,7 +22,7 @@ module.exports = (client, message) => {
     const cmd = client.commands.get(command);
 
     // If that command doesn't exist, silently exit and do nothing
-    if (!cmd) return;
+    if (!cmd) return message.reply("There's no such command!");
 
     // Run the command
     cmd.run(client, message, args);
