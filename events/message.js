@@ -1,6 +1,8 @@
 module.exports = async (client, message) => {
     // Ignore all bots
     if (message.author.bot) return;
+    // Ignore DMs
+    if (!message.guild) return;
 
     const responseObject = require("../responseObject.json");
 
