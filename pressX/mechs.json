@@ -1,0 +1,29 @@
+[{
+    "name": "SDR-5V",
+    "alias": "Spider",
+    "class": "Light",
+    "cost": 2000000,
+    "armour": {
+        "Head": 30,
+        "CTorso": 100,
+        "LTorso": 70,
+        "RTorso": 70,
+        "LArm": 50,
+        "RArm": 50,
+        "LLeg": 70,
+        "RLeg": 70
+    },
+    "core": {
+        "Head": 15,
+        "CTorso": 50,
+        "LTorso": 35,
+        "RTorso": 35,
+        "LArm": 25,
+        "RArm": 25,
+        "LLeg": 35,
+        "RLeg": 35
+    },
+    "heatCappacity": 70,
+    "heatEffectivness": 20,
+    "speed": 15
+}]

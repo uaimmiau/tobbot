@@ -10,6 +10,7 @@ exports.run = async (client, message, args) => {
             LTorso: "",
             RTorso: "",
             LArm: "",
+            RArm: "",
             LLeg: "",
             RLeg: ""
         },
@@ -19,6 +20,7 @@ exports.run = async (client, message, args) => {
             LTorso: "",
             RTorso: "",
             LArm: "",
+            RArm: "",
             LLeg: "",
             RLeg: ""
         },
