@@ -26,6 +26,7 @@ exports.run = async (client, message, args) => {
         },
         inventory: [],
         mountedWeapons: [],
+        mountedEqupiment: [],
         fireGroup1: [],
         fireGroup2: [],
         fireGroup3: [],

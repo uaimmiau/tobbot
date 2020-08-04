@@ -9,6 +9,7 @@ exports.run = async (client, message, args) => {
         user = temp.id;
     }
     const key = `${message.guild.id}-${user}`;
+    if (!/^-{0,1}\d+$/.test(args[1])) return message.reply("You can only pay in C-Bills");
     const pay = parseInt(args[1], 10);
     let currentBal = parseInt(client.mechwarriors.get(key, "cbills"), 10);
     let newBal = currentBal + pay;
