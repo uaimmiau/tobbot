@@ -34,9 +34,7 @@ exports.run = async (client, message, args) => {
         });
 
     //Trade-in:
-    console.log(currentMech);
-    console.log(currentBalance);
-    const currentMechWorth = 0;
+    let currentMechWorth = 0;
     if (currentMech != null) {
         for (let mech of mechs) {
             if (currentMech == mech.name) {
