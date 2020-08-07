@@ -27,6 +27,22 @@ exports.run = async (client, message, args) => {
         .then(collected => {
             currentBalance -= cost;
             client.mechwarriors.set(key, entity.name, "mech");
+            client.mechwarriors.set(key, entity.armour.Head, "armour.Head");
+            client.mechwarriors.set(key, entity.armour.CTorso, "armour.CTorso");
+            client.mechwarriors.set(key, entity.armour.LTorso, "armour.LTorso");
+            client.mechwarriors.set(key, entity.armour.RTorso, "armour.RTorso");
+            client.mechwarriors.set(key, entity.armour.LArm, "armour.LArm");
+            client.mechwarriors.set(key, entity.armour.RArm, "armour.RArm");
+            client.mechwarriors.set(key, entity.armour.LLeg, "armour.LLeg");
+            client.mechwarriors.set(key, entity.armour.RLeg, "armour.RLeg");
+            client.mechwarriors.set(key, entity.core.Head, "armour.Head");
+            client.mechwarriors.set(key, entity.core.CTorso, "armour.CTorso");
+            client.mechwarriors.set(key, entity.core.LTorso, "armour.LTorso");
+            client.mechwarriors.set(key, entity.core.RTorso, "armour.RTorso");
+            client.mechwarriors.set(key, entity.core.LArm, "armour.LArm");
+            client.mechwarriors.set(key, entity.core.RArm, "armour.RArm");
+            client.mechwarriors.set(key, entity.core.LLeg, "armour.LLeg");
+            client.mechwarriors.set(key, entity.core.RLeg, "armour.RLeg");
             message.channel.send("Bought it!");
         })
         .catch(collected => {
