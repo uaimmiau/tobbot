@@ -17,8 +17,23 @@ exports.run = async (client, message, args) => {
     }
     const key = `${message.guild.id}-${user}`;
     const currentMech = await client.mechwarriors.get(key, "mech");
+    if (currentMech == "") return message.channel.send("You don't have a mech!");
     const armour = await client.mechwarriors.get(key, "armour");
     const core = await client.mechwarriors.get(key, "core");
+    let mArmour, mCore;
+
+
+
+    for (let mech of mechs) {
+        if (mech.name == currentMech) {
+            // let object = JSON.parse(mech);
+            // console.log(typeof (object), typeof (mech));
+            mArmour = mech.armour;
+            mCore = mech.core;
+        }
+    }
+
+    console.log(mArmour, armour, mCore, core);
 
     const canvas = Canvas.createCanvas(700, 450);
     const ctx = canvas.getContext("2d");

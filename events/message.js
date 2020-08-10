@@ -4,7 +4,7 @@ module.exports = async (client, message) => {
     // Ignore DMs
     if (!message.guild) return;
 
-    const responseObject = require("../responseObject.json");
+    const responseObject = require("../pressX/responseObject.json");
 
     //check if message starts with something which we can respond to in a hilarious way
     for (var property in responseObject) {
@@ -17,7 +17,10 @@ module.exports = async (client, message) => {
     if (message.content.indexOf(client.config.prefix) !== 0) return;
 
     // Our standard argument/command name definition.
-    const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
+    const args = message.content
+        .slice(client.config.prefix.length)
+        .trim()
+        .split(/ +/g);
     const command = args.shift().toLowerCase();
 
     // Grab the command data from the client.commands Enmap

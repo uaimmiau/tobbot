@@ -1,4 +1,6 @@
 exports.run = async (client, message, args) => {
+    if (args[0] == null) return message.reply("You have to provide me with the desired mechs name");
+
     const mechs = client.mechs;
     const user = message.author.id;
     const key = `${message.guild.id}-${user}`;
@@ -35,14 +37,14 @@ exports.run = async (client, message, args) => {
             client.mechwarriors.set(key, entity.armour.RArm, "armour.RArm");
             client.mechwarriors.set(key, entity.armour.LLeg, "armour.LLeg");
             client.mechwarriors.set(key, entity.armour.RLeg, "armour.RLeg");
-            client.mechwarriors.set(key, entity.core.Head, "armour.Head");
-            client.mechwarriors.set(key, entity.core.CTorso, "armour.CTorso");
-            client.mechwarriors.set(key, entity.core.LTorso, "armour.LTorso");
-            client.mechwarriors.set(key, entity.core.RTorso, "armour.RTorso");
-            client.mechwarriors.set(key, entity.core.LArm, "armour.LArm");
-            client.mechwarriors.set(key, entity.core.RArm, "armour.RArm");
-            client.mechwarriors.set(key, entity.core.LLeg, "armour.LLeg");
-            client.mechwarriors.set(key, entity.core.RLeg, "armour.RLeg");
+            client.mechwarriors.set(key, entity.core.Head, "core.Head");
+            client.mechwarriors.set(key, entity.core.CTorso, "core.CTorso");
+            client.mechwarriors.set(key, entity.core.LTorso, "core.LTorso");
+            client.mechwarriors.set(key, entity.core.RTorso, "core.RTorso");
+            client.mechwarriors.set(key, entity.core.LArm, "core.LArm");
+            client.mechwarriors.set(key, entity.core.RArm, "core.RArm");
+            client.mechwarriors.set(key, entity.core.LLeg, "core.LLeg");
+            client.mechwarriors.set(key, entity.core.RLeg, "core.RLeg");
             message.channel.send("Bought it!");
         })
         .catch(collected => {
