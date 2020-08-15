@@ -21,19 +21,13 @@ exports.run = async (client, message, args) => {
     const armour = await client.mechwarriors.get(key, "armour");
     const core = await client.mechwarriors.get(key, "core");
     let mArmour, mCore;
-
-
-
     for (let mech of mechs) {
         if (mech.name == currentMech) {
-            // let object = JSON.parse(mech);
-            // console.log(typeof (object), typeof (mech));
             mArmour = mech.armour;
             mCore = mech.core;
         }
     }
 
-    console.log(mArmour, armour, mCore, core);
 
     const canvas = Canvas.createCanvas(700, 450);
     const ctx = canvas.getContext("2d");
@@ -48,27 +42,73 @@ exports.run = async (client, message, args) => {
         iy = 80,
         wt = 230,
         ht = 320;
+    //Pato-rysowanie statusu
+    //Head
+    let img = await Canvas.loadImage("./assets/HC.png");
+    ctx.globalAlpha = core.Head / mCore.Head;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/HA.png");
+    ctx.globalAlpha = armour.Head / mArmour.Head;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    //Center Torso
+    img = await Canvas.loadImage("./assets/CTC.png");
+    ctx.globalAlpha = core.CTorso / mCore.CTorso;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/CTA.png");
+    ctx.globalAlpha = armour.CTorso / mArmour.CTorso;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    //Left Torso
+    img = await Canvas.loadImage("./assets/LTC.png");
+    ctx.globalAlpha = core.LTorso / mCore.LTorso;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/LTA.png");
+    ctx.globalAlpha = armour.LTorso / mArmour.LTorso;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    //Right Torso
+    img = await Canvas.loadImage("./assets/RTC.png");
+    ctx.globalAlpha = core.RTorso / mCore.RTorso;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/RTA.png");
+    ctx.globalAlpha = armour.RTorso / mArmour.RTorso;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    //Left Arm
+    img = await Canvas.loadImage("./assets/LAC.png");
+    ctx.globalAlpha = core.LArm / mCore.LArm;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/LAA.png");
+    ctx.globalAlpha = armour.LArm / mArmour.LArm;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    //Right Arm
+    img = await Canvas.loadImage("./assets/RAC.png");
+    ctx.globalAlpha = core.RArm / mCore.RArm;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/RAA.png");
+    ctx.globalAlpha = armour.RArm / mArmour.RArm;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    //Left Leg
+    img = await Canvas.loadImage("./assets/LLC.png");
+    ctx.globalAlpha = core.LLeg / mCore.LLeg;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/LLA.png");
+    ctx.globalAlpha = armour.LLeg / mArmour.LLeg;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    //Right Leg
+    img = await Canvas.loadImage("./assets/RLC.png");
+    ctx.globalAlpha = core.RLeg / mCore.RLeg;
+    ctx.drawImage(img, ix, iy, wt, ht);
+    img = await Canvas.loadImage("./assets/RLA.png");
+    ctx.globalAlpha = armour.RLeg / mArmour.RLeg;
+    ctx.drawImage(img, ix, iy, wt, ht);
 
-    let test = await Canvas.loadImage("./assets/HeadCore.png");
-    ctx.drawImage(test, ix, iy, wt, ht);
-    const test1 = await Canvas.loadImage("./assets/CTA.png");
-    ctx.drawImage(test1, ix, iy, wt, ht);
-    const test2 = await Canvas.loadImage("./assets/CTC.png");
-    ctx.drawImage(test2, ix, iy, wt, ht);
-    const test3 = await Canvas.loadImage("./assets/RightTorsoCore.png");
-    ctx.drawImage(test3, ix, iy, wt, ht);
-    const test4 = await Canvas.loadImage("./assets/LeftArmCore.png");
-    ctx.drawImage(test4, ix, iy, wt, ht);
-    const test5 = await Canvas.loadImage("./assets/RightArmCore.png");
-    ctx.drawImage(test5, ix, iy, wt, ht);
-    const test6 = await Canvas.loadImage("./assets/LeftLegCore.png");
-    ctx.drawImage(test6, ix, iy, wt, ht);
-    const test7 = await Canvas.loadImage("./assets/RightLegCore.png");
-    ctx.drawImage(test7, ix, iy, wt, ht);
+
+
+
+
+
 
     // const background = await Canvas.loadImage('./wallpaper.jpg');
     // ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-    const attachment = new Discord.Attachment(canvas.toBuffer(), "test.png");
+    const attachment = new Discord.Attachment(canvas.toBuffer(), "status.png");
     message.channel.send(`Test!`, attachment);
 };
