@@ -17,6 +17,7 @@ const Enmap = require("enmap");
 const client = new Discord.Client();
 client.config = require("./config.json");
 client.mechs = require("./pressX/mechs.json");
+client.weapons = require("./pressX/weapons.json");
 
 // Aliases and commands are put in collections where they can be read from,
 // catalogued, listed, etc.

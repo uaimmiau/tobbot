@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
         embed: {
             color: Math.floor(Math.random() * 9999999),
             title: `Let's see what we have in stock:`,
-            description: `Some fine mechs for good price`,
+            description: `Some fine mechs for a good price`,
             timestamp: new Date(),
         },
     });
