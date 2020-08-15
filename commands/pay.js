@@ -1,5 +1,5 @@
 exports.run = async (client, message, args) => {
-    if (message.author.id != client.config.ownerID) return message.reply("You aren't allowed to do this");
+    if (message.author.id != client.config.ownerId) return message.reply("You aren't allowed to do this");
     let user;
     if (args[0] == null || args[1] == null) return message.reply("Must specify user and payout");
     if (args[0].startsWith("<")) {

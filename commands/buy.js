@@ -8,10 +8,11 @@ exports.run = async (client, message, args) => {
     let entity;
     for (let weapon of weapons) {
         if (weapon.code.toLowerCase() == args[0].toLowerCase()) {
-            entity = weapon;
+            entity = weapon.code;
         }
     }
     if (entity == null) return message.reply(`There's no such thing as ${args[0]} in the shop`);
 
+    console.log(entity);
     client.mechwarriors.push(key, entity, "inventory");
 }
